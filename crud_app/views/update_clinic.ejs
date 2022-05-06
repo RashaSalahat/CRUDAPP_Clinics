@@ -1,0 +1,61 @@
+<!-- include header -->
+<%- include('include/_header'); -%> <!--This Syntax works ,use it always-->
+<!-- /include header -->
+
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Clinics</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Clinic</h2>
+            <span class="text-light">Use the below form to Update an account</span>
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+ <form method="POST" id="update_clinic">
+    <div class="new_clinic">
+        <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="<%= clinic._id %>">
+            <input type="text" name="name" value="<%= clinic.name %>" placeholder="Mark Stoenis"> <!--pass the name-->
+        </div>
+        <div class="form-group">
+            <label for="Doctor" class="text-light">Doctor</label>
+            <input type="text" name="doctor" value="<%= clinic.doctor%>" placeholder="Dr Rasha">
+        </div>
+        <div class="form-group">
+            <label for="Info" class="text-light">Information</label>
+            <input type="text" name="info" value="<%= clinic.information%>" placeholder="This clinic was built in...">
+        </div>
+
+        <div class="form-group">
+            <label for="status" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" <%= clinic.status == 'Active' ? 'checked' : '' %> >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" <%= clinic.status == 'Inactive' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer'); -%>
+<!-- /include footer -->

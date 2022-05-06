@@ -1,0 +1,19 @@
+<% for(var i = 0; i < clinics.length; i++) { %>
+    <tr>
+        <!--print Variables-->
+        <td><%= i + 1 %></td>
+        <td><%= clinics[i].name %></td>
+        <td><%= clinics[i].doctor %></td>
+        <td><%= clinics[i].information %></td>
+        <td><%= clinics[i].status %></td>
+        <td>
+            <!--  ?id=<%= clinics[i]._id%> : we pass the id to it  -->
+            <a href="/update-clinic?id=<%= clinics[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= clinics[i]._id%> >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>
